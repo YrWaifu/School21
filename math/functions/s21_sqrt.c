@@ -10,7 +10,6 @@ long double s21_sqrt(double x) {
     } else if (x > 0.0 && x <= 10.0) {
         result = s21_exp(s21_log(x) / 2.0);
     } else {
-        long double result = x / 2;
         long double eps = 0.000001;
         while (result - x / result > eps) {
             result = 0.5 * (result + x / result);

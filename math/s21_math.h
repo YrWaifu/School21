@@ -30,3 +30,4 @@ long double s21_atan(double x);
 
 int s21_isinf(double x);
 int s21_isnan(double x);
+long double basic_atan(double x);

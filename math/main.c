@@ -7,8 +7,8 @@
 // разорабть метод ньюотна в подсчете логарифма
 
 int main() {
-    double number = -1.3;
+    double number = 0.5;
 
-    printf("Ceil of %lf is %Lf\n", number, s21_ceil(number));
-    printf("Ceil of %lf is %f\n", number, ceil(number));
+    printf("%f\n", cos(number));
+    printf("%Lf", s21_cos(number));
 }
