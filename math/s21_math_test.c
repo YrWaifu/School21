@@ -243,8 +243,10 @@ START_TEST(fmod_test) {
 END_TEST
 
 START_TEST(ceil_test) {
-    ck_assert_ldouble_eq(s21_ceil(max_inf), ceil(max_inf));
-    ck_assert_ldouble_eq(s21_ceil(min_inf), ceil(min_inf));
+    ck_assert_ldouble_nan(s21_ceil(NAN));
+    ck_assert(isinf(s21_ceil(INFINITY)));
+    ck_assert(isinf(s21_ceil(-INFINITY)));
+
     ck_assert_ldouble_nan(s21_floor(max_nan));
     ck_assert_ldouble_nan(s21_floor(min_nan));
     ck_assert_ldouble_eq(s21_ceil(-876554310.23455), ceil(-876554310.23455));
@@ -252,6 +254,15 @@ START_TEST(ceil_test) {
     ck_assert_ldouble_eq(s21_ceil(-0.45), ceil(-0.45));
     ck_assert_ldouble_eq(s21_ceil(0.45), ceil(0.45));
     ck_assert_ldouble_eq(s21_ceil(-0.00000000000000045), ceil(-0.00000000000000045));
+
+    ck_assert_ldouble_eq(s21_ceil(5.0), ceil(5.0));
+    ck_assert_ldouble_eq(s21_ceil(-10.0), ceil(-10.0));
+    ck_assert_ldouble_eq(s21_ceil(0.0), ceil(0.0));
+    ck_assert_ldouble_eq(s21_ceil(-0.0), ceil(-0.0));
+
+    ck_assert_ldouble_eq(s21_ceil(3.14), ceil(3.14));
+    ck_assert_ldouble_eq(s21_ceil(-7.5), ceil(-7.5));
+    ck_assert_ldouble_eq(s21_ceil(8.99), ceil(8.99));
 }
 END_TEST
 
